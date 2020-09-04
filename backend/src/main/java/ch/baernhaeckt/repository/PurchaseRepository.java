@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource(collectionResourceRel = "purchase", path = "purchase")
-interface PurchaseRepository extends CrudRepository<Purchase, String> {
+public interface PurchaseRepository extends CrudRepository<Purchase, String> {
 }
