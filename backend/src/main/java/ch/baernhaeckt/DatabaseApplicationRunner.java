@@ -115,7 +115,7 @@ public class DatabaseApplicationRunner implements ApplicationRunner {
             return createRandomUser();
         return userService.createUser(firstname,
                 name,
-                "01,01,2000",
+                "01.01.2000",
                 email,
                 "secure"
                 );
