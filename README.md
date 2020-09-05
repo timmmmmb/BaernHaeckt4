@@ -1,14 +1,22 @@
 # BärnHäckt4
-Dies ist das Projekt des Teams Danger Rangers.
-Wir haben für die BE! Tourismus AG eine Lösung erstellt welche mehrere Gästekarten für Kunden zusammenfasst. Jeder Kunde bekommt einen individuellen QR Code. Dieser Code kann mit einer eigens für diese Challange erstellten App eingelesen werden. Dank diesem Code bekommen die Kunden Vergünstigungen auf diverse Reiseziele und Aktivitäten in der Region Bern. Für den Kunden stehen sowohl eine Webanwendung zur Verfügung als auch eine MobileApp.
+This is the project of the team named Danger Rangers.
+We have created a solution for BE! Tourismus AG which combines some Guestcards. 
+Every client receive an individual QR Code.
+This code can be read by an own created app.
+Due to this code the clients can get discounts for different destinations and activities.
+The clients have the possibility to use either the app or a website. 
 
-
-Unser Projekt ist in ein Java Spring Boot Backend und ein Angular Frontend gegliedert. 
+Our project is separated into a Java Spring Boot Backend and an Angular Frontend,
+ 
 #Installation Java Backend
-Klonen Sie das Repository. Verwenden Sie maven um das Projekt zu builden mit `mvn clean package install`.
-Starten Sie anschliessend die Spring Boot Application.
+Clone this repository. Use maven to build the project with `mvn clean package install`.
+After that you should start the Spring Boot Application
 
 #Installation Angular Frontend
-Installieren Sie die Dependencies mit `npm i`.
-Starten Sie anschliessend die Webanwendung mit `npm run dev`.
+Install all used node_modules for this project with `npm i` or `npm install`.
+It will install everything you need to build the project.
+Start the web-app with the following command `npm run dev`.
+The website will open automatically because behind the command is a flag `--open`
+
+#Installation Scanner App 
 
