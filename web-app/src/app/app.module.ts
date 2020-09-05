@@ -20,6 +20,7 @@ import {PurchasesService} from './services/purchases.service';
 import {HttpClientModule} from '@angular/common/http';
 import {StoreModule} from '@ngrx/store';
 import {appReducer} from './store/app.reducer';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { QrDisplayComponent } from './components/qr-display/qr-display.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -46,6 +47,7 @@ import { RegisterComponent } from './components/register/register.component';
     HttpClientModule,
     NgxQRCodeModule,
     StoreModule.forRoot({ root: appReducer}),
+    StoreDevtoolsModule.instrument(),
   ],
   providers: [UserService, RegionsService, OffersService, ProductsService, PurchasesService],
   bootstrap: [AppComponent]

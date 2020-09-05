@@ -1,0 +1,25 @@
+.scan-button {
+  background-color: green;
+}
+
+.button-section {
+  position: absolute;
+  bottom: 5%;
+  margin: 0 auto;
+}
+
+.red {
+  border: 5px solid red;
+}
+
+.green {
+  border: 5px solid green;
+}
+
+.yellow {
+  border : 5px solid yellow;
+}
+
+.black {
+  border: 5px solid black;
+}

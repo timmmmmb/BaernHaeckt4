@@ -52,13 +52,14 @@ public class PurchaseController {
         return purchases.toArray(new Purchase[0]);
     }
 
-    @GetMapping("/getValidQRCodes")
+    @GetMapping("/check-qr-code")
     @ResponseBody
-    public ResponseEntity<Purchase> getValidQRCodes(@RequestParam String code) {
+    public ResponseEntity<Purchase> checkQRCode(@RequestParam String code) {
         Optional<Purchase> purchase = purchaseRepository.findByQrCode(code);
-        if(purchase.isPresent() && purchase.get().getValidFrom().before(Calendar.getInstance().getTime()) && purchase.get().getValidTo().after(Calendar.getInstance().getTime())){
-            return purchase.map(ResponseEntity::ok).orElse(null);
+        if (purchase.isPresent()) {
+            return ResponseEntity.ok(purchase.get());
         }
+
         return null;
     }
 }
