@@ -11,6 +11,7 @@ import {QrDisplayComponent} from './components/qr-display/qr-display.component';
 
 
 const routes: Routes = [
+  // First route is a wildcard route (you can pass everything after the /)
   { path: 'region/:region', component: RegionDetailComponent},
   { path: 'regions', component: RegionsComponent},
   { path: 'offers', component: OffersComponent},

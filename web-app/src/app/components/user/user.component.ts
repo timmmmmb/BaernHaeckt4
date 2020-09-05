@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../../services/user.service";
-import {Store} from "@ngrx/store";
-import {Router} from "@angular/router";
-import {selectUser} from "../../store/user/user.reducer";
+import {UserService} from '../../services/user.service';
+import {Store} from '@ngrx/store';
+import {selectUser} from '../../store/user/user.reducer';
 
 
 @Component({
@@ -12,19 +11,16 @@ import {selectUser} from "../../store/user/user.reducer";
 })
 export class UserComponent implements OnInit {
 
-  displayProfile:boolean = false;
-  notLoggedIn: boolean = false;
+  displayProfile = false;
+  notLoggedIn = false;
 
-  constructor(private userService: UserService, private store: Store<any>, private router: Router) { }
+  constructor(private userService: UserService, private store: Store<any>) { }
 
   ngOnInit() {
     this.store.select(selectUser).subscribe(user => {
-      console.log(user)
-      if (user.id)
-      {
+      if (user.id) {
         this.displayProfile = true;
-      }
-      else {
+      } else {
         this.notLoggedIn = true;
       }
     });

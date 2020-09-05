@@ -11,9 +11,10 @@ import {Region} from '../../models/region';
 })
 export class OffersComponent implements OnInit {
 
+  // Get the region as input from the parent component
   @Input() region: Region;
 
-  constructor(private regionService: RegionsService, private store: Store<any>) { }
+  constructor() { }
 
   ngOnInit() {
 

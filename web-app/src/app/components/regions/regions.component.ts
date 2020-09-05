@@ -16,6 +16,7 @@ export class RegionsComponent implements OnInit {
   constructor(private regionsService: RegionsService, private router: Router, private store: Store<any>) { }
 
   ngOnInit() {
+    // Get all regions to display them on the regions page
     this.regionsService.getAllRegions().subscribe((regions: Region[]) => {
       this.regions = regions;
       this.store.dispatch(new RegionsAddAll(this.regions));

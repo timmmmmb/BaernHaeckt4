@@ -7,6 +7,7 @@ import {Offer} from '../../models/offer';
   styleUrls: ['./offer.component.css']
 })
 export class OfferComponent implements OnInit {
+  // Store a single offer that was passed to the component
   @Input() offer: Offer;
   constructor() { }
 
