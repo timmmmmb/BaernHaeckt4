@@ -9,5 +9,5 @@ import java.util.List;
 
 @RepositoryRestResource(collectionResourceRel = "region", path = "region")
 public interface RegionRepository extends CrudRepository<Region, String> {
-    List<Region> findByName(String name);
+    List<Region> findByNameIgnoreCase(String name);
 }

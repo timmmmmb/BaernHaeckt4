@@ -30,7 +30,7 @@ public class RegionController {
     @GetMapping("/{name}")
     public @ResponseBody
     Region[] getByName(@PathVariable String name) {
-        return regionRepository.findByName(name).toArray(new Region[0]);
+        return regionRepository.findByNameIgnoreCase(name).toArray(new Region[0]);
     }
 
 

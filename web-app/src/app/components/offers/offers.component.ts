@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {OffersService} from '../../services/offers.service';
-import {Offer} from '../../models/offer';
 import {OffersAddAll} from '../../store/offers/offers.actions';
+import {RegionsService} from '../../services/regions.service';
+import {Region} from '../../models/region';
 
 @Component({
   selector: 'app-offers',
@@ -11,15 +11,12 @@ import {OffersAddAll} from '../../store/offers/offers.actions';
 })
 export class OffersComponent implements OnInit {
 
-  offers: Offer[] = [];
+  @Input() region: Region;
 
-  constructor(private offersService: OffersService, private store: Store<any>) { }
+  constructor(private regionService: RegionsService, private store: Store<any>) { }
 
   ngOnInit() {
-    this.offersService.getAllOffers().subscribe((offers: Offer[]) => {
-      this.offers = offers;
-      this.store.dispatch(new OffersAddAll(this.offers));
-    } );
+
   }
 
 }
