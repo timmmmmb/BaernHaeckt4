@@ -38,7 +38,7 @@ public class UserController {
     @GetMapping("/getByEmail")
     @ResponseBody
     public ResponseEntity<User> getByEmail(@RequestParam String email) {
-        Optional<User> user = userRepository.findByEmail(email);
+        Optional<User> user = userRepository.findByEmailIgnoreCase(email);
         return user.map(ResponseEntity::ok).orElse(null);
     }
 }

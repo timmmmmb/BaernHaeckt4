@@ -3,13 +3,12 @@ package ch.baernhaeckt.controller;
 import ch.baernhaeckt.exception.EmailExistsException;
 import ch.baernhaeckt.model.User;
 import ch.baernhaeckt.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
-import java.util.Date;
 import java.util.Optional;
 
 @RestController
@@ -19,6 +18,8 @@ public class UserManagementController {
     @Autowired
     private UserRepository userRepository;
 
+    private Logger logger = LoggerFactory.getLogger(UserManagementController.class);
+
     /**
      * Login user
      *
@@ -27,9 +28,11 @@ public class UserManagementController {
      */
     @PostMapping("/login")
     public ResponseEntity<User> loginUser(@Valid @RequestBody User user) {
-        Optional<User> res = userRepository.findByEmail(user.getEmail());
+        Optional<User> res = userRepository.findByEmailIgnoreCase(user.getEmail());
+
 
         if (res.isEmpty()) {
+            logger.warn("User not found");
             return null;
         }
 
@@ -40,6 +43,7 @@ public class UserManagementController {
             return ResponseEntity.ok(updatedUser);
         }
 
+        logger.warn("Password does not match");
         return null;
     }
 
@@ -63,6 +67,6 @@ public class UserManagementController {
     }
 
     private boolean emailExists(String email) {
-        return userRepository.findByEmail(email).isPresent();
+        return userRepository.findByEmailIgnoreCase(email).isPresent();
     }
 }

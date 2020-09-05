@@ -2,6 +2,7 @@ package ch.baernhaeckt.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -25,6 +26,8 @@ public class Purchase {
     private Date purchasedOn;
     private Date validFrom;
     private Date validTo;
+    @NotBlank(message = "QRCode is mandatory")
+    @Column(unique=true)
     private String qrCode;
 
     public String getId() {
