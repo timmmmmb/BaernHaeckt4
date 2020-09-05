@@ -17,7 +17,7 @@ public class Product {
     @NotBlank(message = "Name is mandatory")
     private String name;
     private String description;
-    private double prize;
+    private double price;
     private double sale;
 
     public String getId() {
@@ -36,12 +36,12 @@ public class Product {
         return description;
     }
 
-    public double getPrize() {
-        return prize;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPrize(double prize) {
-        this.prize = prize;
+    public void setPrice(double prize) {
+        this.price = prize;
     }
 
     public double getSale() {

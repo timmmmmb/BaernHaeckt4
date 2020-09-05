@@ -1,4 +1,4 @@
-<section class="product">
+<section *ngIf="!purchaseSuccess" class="product">
   <p class="title">{{product.name}}</p>
   <section class="info-section">
     {{product.description}}
@@ -14,10 +14,24 @@
       <label for="validTo">Gültig bis:</label>
       <input id="validTo" type="date" #to/>
     </div>
+
+    <p *ngIf="invalidDate" style="color: red;">Ungültige Auswahl der Daten</p>
+  </section>
+
+  <section class="price-section">
+      <p class="price">{{product.price}} CHF</p>
   </section>
 
   <section class="purchase-section">
     <p>{{product.price}}</p>
-    <button class="buy-button" (click)="purchase(from.value, to.value)">Kaufen</button>
+    <button *ngIf="user.id" class="buy-button" (click)="purchase(from.value, to.value)">
+      Kaufen
+    </button>
+    <button *ngIf="!user.id" class="buy-button" (click)="router.navigateByUrl('/login')">
+      Einloggen zum Kaufen
+    </button>
   </section>
+</section>
+<section *ngIf="purchaseSuccess" class="thank-message">
+  <p>Danke für Ihren Einkauf. Sie werden in wenigen Sekunden weitergeleitet.</p>
 </section>

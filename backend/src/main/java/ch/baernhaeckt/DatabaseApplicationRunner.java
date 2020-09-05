@@ -50,7 +50,7 @@ public class DatabaseApplicationRunner implements ApplicationRunner {
         Product product = new Product();
         product.setDescription("Dies ist unser Default Pass");
         product.setName("Basic Gästepass");
-        product.setPrize(35.0);
+        product.setPrice(35.0);
         product = productRepository.save(product);
 
         purchaseService.createPurchase(parseDate("2020-10-04"), parseDate("2020-10-09"), product, userList.get(generator.nextInt(userList.size())));
