@@ -1,5 +1,5 @@
 {
-  "name": "web-app",
+  "name": "scan-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev": "ng serve --open"
+    "dev": "ng serve --open",
+    "buildM": "ng build --prod --base-href . --output-path mobile/www"
   },
   "private": true,
   "dependencies": {
@@ -20,23 +21,19 @@
     "@angular/platform-browser": "~8.2.0",
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
-    "@ngrx/effects": "^10.0.0",
-    "@ngrx/entity": "^10.0.0",
-    "@ngrx/store": "^10.0.0",
-    "@ngrx/store-devtools": "^10.0.0",
-    "ngrx": "0.0.1-security",
+    "@zxing/ngx-scanner": "^3.0.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.802.2",
+    "@angular-devkit/build-angular": "^0.802.2",
     "@angular/cli": "~8.2.2",
     "@angular/compiler-cli": "~8.2.0",
     "@angular/language-service": "~8.2.0",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",

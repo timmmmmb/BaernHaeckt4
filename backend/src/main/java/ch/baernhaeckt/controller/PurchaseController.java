@@ -4,6 +4,7 @@ import ch.baernhaeckt.model.Purchase;
 import ch.baernhaeckt.model.User;
 import ch.baernhaeckt.repository.PurchaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,10 +51,10 @@ public class PurchaseController {
         return purchases.toArray(new Purchase[0]);
     }
 
-    @GetMapping("/getValidQRCodes")
+    @GetMapping("/check-qr-code")
     @ResponseBody
-    public Boolean getValidQRCodes(@RequestParam String code) {
+    public ResponseEntity<Purchase> checkQRCode(@RequestParam String code) {
         ArrayList<Purchase> purchases = (ArrayList<Purchase>) purchaseRepository.findByQrCode(code);
-        return purchases.size() == 1;
+        return ResponseEntity.ok(purchases.get(0));
     }
 }
