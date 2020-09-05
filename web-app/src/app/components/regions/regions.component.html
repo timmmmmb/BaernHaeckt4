@@ -1,9 +1,9 @@
 <section class="grid-container">
   <div class="regions">
     <div *ngFor="let region of regions" id="{{region.name.toLowerCase()}}" class="region-container">
-      <a href="/region/{{region.name.toLowerCase()}}">
+      <div (click)="navigateTo('/region/' + region.name.toLowerCase())">
         <p class="region-name">Region {{region.name}}</p>
-      </a>
+      </div>
     </div>
   </div>
 </section>
