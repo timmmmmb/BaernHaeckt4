@@ -1,5 +1,12 @@
-/* Add a background-image to the first site*/
-body{
+h2 h3{
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container {
   background-image: url("src/assets/images/background.jpeg");
   width: 100vw;
   margin-left: -8px;
@@ -10,12 +17,8 @@ body{
   z-index: -1;
 }
 
-h2 h3{
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.sticker {
+  background: transparent;
 }
 
 .sticker-container{
@@ -26,4 +29,11 @@ h2 h3{
 .sticker{
   width: 40vw;
   height: 30vw;
+}
+
+.offer-container {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  display: block;
 }

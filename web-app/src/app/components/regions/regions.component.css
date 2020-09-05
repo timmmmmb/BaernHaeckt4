@@ -22,6 +22,7 @@ a{
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 3px 2px 2px grey;
 }
 
 .region-container:hover {
@@ -37,10 +38,6 @@ a{
   text-decoration: none;
   font-size: 30px;
   text-shadow: 2px 2px #66686a;
-}
-
-.region-name:hover{
-  color: #c62c2c;
 }
 
 #bern{
@@ -70,6 +67,50 @@ a{
   background-repeat: no-repeat;
   background-position: center center;
 }
+
+#beatenberg{
+  background-image: url("src/assets/images/beatenberg.jpeg");
+  width: 100%;
+  height: auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: 100% 100%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#thunersee {
+  background-image: url("src/assets/images/thunersee.jpeg");
+  width: 100%;
+  height: auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: 100% 100%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#diemtigtal {
+  background-image: url("src/assets/images/diemtigtal.jpeg");
+  width: 100%;
+  height: auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: 100% 100%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+
 
 #gstaad{
   background-image: url("src/assets/images/gstaad.jpg");
