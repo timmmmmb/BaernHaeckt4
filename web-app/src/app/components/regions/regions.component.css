@@ -1,0 +1,123 @@
+a{
+  text-decoration: none;
+}
+.grid-container{
+  position: absolute;
+  width: 80vw;
+  left: 50%;
+  transform: translateX(-43%);
+}
+.regions{
+  margin-top: 15%;
+  display: grid;
+  grid-template-columns: 25% 25% 25%;
+  grid-template-rows: 100px 100px;
+  grid-column-gap: 2vw;
+  grid-row-gap: 15%;
+}
+
+.region-container{
+  background-color: dimgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.region-name{
+  color: white;
+  text-align: right;
+  padding-right: 7px;
+  text-decoration: none;
+  font-size: 30px;
+  text-shadow: 2px 2px #66686a;
+}
+
+.region-name:hover{
+  color: #c62c2c;
+}
+
+#bern{
+  background-image: url("src/assets/images/bern_city.jpg");
+  width: 100%;
+  height: auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: 100% 100%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#adelboden{
+  background-image: url("src/assets/images/adelboden_lenk.jpg");
+  width: 100%;
+  height: auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: 100% 100%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#gstaad{
+  background-image: url("src/assets/images/gstaad.jpg");
+  width: 100%;
+  height: auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: 100% 100%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#interlaken{
+  background-image: url("src/assets/images/interlaken.jpg");
+  width: 100%;
+  height: auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: 100% 100%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#jungfrau{
+  background-image: url("src/assets/images/jungfrau.jpg");
+  width: 100%;
+  height: auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: 100% 100%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#jura{
+  background-image: url("src/assets/images/jura.jpg");
+  width: 100%;
+  height: auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: 100% 100%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+
