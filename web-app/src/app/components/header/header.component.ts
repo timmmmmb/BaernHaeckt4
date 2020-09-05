@@ -28,4 +28,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl(url);
   }
 
+  logout(){
+    this.cookieService.delete("UserID");
+    let empty = new User();
+    this.store.dispatch(new UpdateUser(empty));
+    this.router.navigate(["/"]);
+  }
 }

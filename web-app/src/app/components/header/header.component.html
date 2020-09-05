@@ -6,8 +6,11 @@
     </div>
     <div class="nav-element" (click)="navigateTo('/regions')">Regionen</div>
     <div class="nav-element" (click)="navigateTo('/offers')">Angebote</div>
+    <div class="nav-element" (click)="logout()" *ngIf="this.cookieService.check('UserID')">logout</div>
     <div class="nav-element" (click)="navigateTo('/login')" id="userlink">
       <img class="user-icon" src="/assets/icons/account.svg" alt="">
     </div>
+
+
   </nav>
 </header>
