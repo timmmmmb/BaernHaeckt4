@@ -14,4 +14,8 @@
   </ul>
 </div>
 
-<p *ngIf="notLoggedIn">Bitte loggen Sie sich ein oder erstellen Sie ein kostenloses Login.</p>
+<div *ngIf="notLoggedIn" class="forbidden">
+  <img src="assets/icons/forbidden.svg">
+  <p>Bitte loggen Sie sich ein oder erstellen Sie ein kostenloses Login.</p>
+</div>
+
