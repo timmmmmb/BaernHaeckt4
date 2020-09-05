@@ -3,11 +3,13 @@ package ch.baernhaeckt.controller;
 import ch.baernhaeckt.model.Purchase;
 import ch.baernhaeckt.model.User;
 import ch.baernhaeckt.repository.PurchaseRepository;
+import ch.baernhaeckt.service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,6 +26,8 @@ public class PurchaseController {
 
     @Autowired
     private PurchaseRepository purchaseRepository;
+    @Autowired
+    private PurchaseService purchaseService;
 
     @GetMapping
     public @ResponseBody
@@ -61,5 +65,11 @@ public class PurchaseController {
         }
 
         return null;
+    }
+
+    @PostMapping("/savePurchase")
+    @ResponseBody
+    public ResponseEntity<Purchase> savePurchase(@RequestParam Purchase purchase){
+         return ResponseEntity.ok(purchaseService.createPurchase(purchase.getValidFrom(), purchase.getValidTo(), purchase.getProduct(), purchase.getUser()));
     }
 }
