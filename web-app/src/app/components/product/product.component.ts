@@ -20,27 +20,18 @@ export class ProductComponent implements OnInit {
   user: User;
   invalidDate = false;
   purchaseSuccess = false;
+  calculatedPrice: number;
 
   constructor(private purchaseService: PurchasesService, private router: Router, private store: Store<any>) { }
 
   ngOnInit() {
     console.log(this.product);
     this.store.select(selectUser).subscribe(user => this.user = user);
+    this.calculatedPrice = this.product.price;
   }
 
   purchase(from: string, to: string) {
-    this.invalidDate = false;
-
-    if (from.length === 0 || to.length === 0) {
-      this.invalidDate = true;
-    }
-
-    const validFrom = new Date(from);
-    const validTo = new Date(to);
-
-    if (validFrom > validTo) {
-      this.invalidDate = true;
-    }
+    this.invalidDate = !this.areDatesValid(from, to);
 
     if (this.invalidDate) {
       return;
@@ -67,5 +58,39 @@ export class ProductComponent implements OnInit {
         }
       });
     });
+  }
+
+  areDatesValid(from: string, to: string) {
+    if (from.length === 0 || to.length === 0) {
+      return false;
+    }
+
+    const validFrom = new Date(from);
+    const validTo = new Date(to);
+
+    if (validFrom < new Date()) {
+      return false;
+    }
+
+    if (validFrom > validTo) {
+      return false;
+    }
+
+    return true;
+  }
+
+  calculatePrice(from: string, to: string) {
+    if (!this.areDatesValid(from, to)) {
+      return;
+    }
+
+    const validFrom = new Date(from);
+    const validTo = new Date(to);
+
+    const diffInTime = validTo.getTime() - validFrom.getTime();
+
+    const diffInDays = diffInTime / (1000 * 3600 * 24);
+
+    this.calculatedPrice = this.product.price * diffInDays;
   }
 }
