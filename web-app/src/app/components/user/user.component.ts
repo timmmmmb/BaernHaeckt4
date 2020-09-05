@@ -23,6 +23,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     this.store.select(selectUser).subscribe(user => {
+      this.notLoggedIn = true;
       if (user.id)
       {
         this.purchasesService.getValidPurchases().subscribe((purchases: Purchase[]) => {
@@ -32,11 +33,8 @@ export class UserComponent implements OnInit {
           this.dateofbrith = user.dateOfBirth;
           this.displayProfile = true;
           purchasesByUser.forEach((purchase:Purchase) => this.passes.push({"valid": this.formatDate(purchase.validFrom) + " - " + this.formatDate(purchase.validTo), "qrcode": purchase.qrCode}));
-          console.log(this.passes);
         });
-      }
-      else {
-        this.notLoggedIn = true;
+        this.notLoggedIn = false;
       }
     });
   }

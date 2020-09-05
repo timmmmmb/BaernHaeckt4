@@ -27,6 +27,7 @@
     "@ngrx/store-devtools": "^10.0.0",
     "@techiediaries/ngx-qrcode": "^9.1.0",
     "ngrx": "0.0.1-security",
+    "ngx-cookie-service": "^10.0.1",
     "ngx-qrcode": "0.1.0-rc.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
