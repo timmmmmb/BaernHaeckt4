@@ -1,2 +1,8 @@
+<div class="offer-cards">
 
-{{offer.description}}
+      <img *ngIf="offer.category == 'Kultur'" src="assets/icons/culture.svg">
+      <img *ngIf="offer.category == 'Sport'" src="assets/icons/sport.svg">
+      <img *ngIf="offer.category == 'Transport'" src="assets/icons/transport.svg">
+    <h3>{{offer.name}}</h3>
+    <p>{{offer.description}}</p>
+</div>

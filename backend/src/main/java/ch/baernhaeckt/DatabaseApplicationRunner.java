@@ -59,7 +59,7 @@ public class DatabaseApplicationRunner implements ApplicationRunner {
 
         offerList = new ArrayList<>();
         offerList.add(offerService.createOffer("Gratis Dorfrundgang Brienz", "", "", "Kultur"));
-        offerList.add(offerService.createOffer("Rabatt Brienz Rothornbahn", "20 % für eine Fahrt mit der Brienz Rothornbahn (20 % auf Normaltarif / 10 % auf Halbtaxtarif)", "", "Tranport"));
+        offerList.add(offerService.createOffer("Rabatt Brienz Rothornbahn", "20 % für eine Fahrt mit der Brienz Rothornbahn (20 % auf Normaltarif / 10 % auf Halbtaxtarif)", "", "Transport"));
         offerList.add(offerService.createOffer("Rabatt Bootverleih", "10 % auf Bootsverleih bei Pirate Bay Nautical Center & Bootsverleih in Brienz", "", "Sport"));
         offerList.add(offerService.createOffer("20 % Standseilbahn Giessbach", "", "", "Transport"));
         offerList.add(offerService.createOffer("50 % Eintritt Schweizer Holzbildhauerei Museum", "", "", "Kultur"));

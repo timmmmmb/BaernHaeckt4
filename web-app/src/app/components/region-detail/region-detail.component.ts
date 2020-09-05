@@ -18,7 +18,6 @@ export class RegionDetailComponent implements OnInit {
   ngOnInit() {
     console.log(this.route.snapshot.params.region);
     this.regionsService.getRegionByName(this.route.snapshot.params.region).subscribe((region: Region[]) => {
-      console.log(region);
       this.region = region[0];
     });
   }

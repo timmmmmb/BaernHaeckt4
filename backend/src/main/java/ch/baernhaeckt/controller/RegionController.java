@@ -32,6 +32,4 @@ public class RegionController {
     Region[] getByName(@PathVariable String name) {
         return regionRepository.findByNameIgnoreCase(name).toArray(new Region[0]);
     }
-
-
 }

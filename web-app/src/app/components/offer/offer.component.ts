@@ -11,7 +11,5 @@ export class OfferComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.offer.name);
   }
-
 }
