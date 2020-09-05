@@ -1,4 +1,4 @@
-import {Offer} from '../../models/Offer';
+import {Offer} from '../../models/offer';
 import {createEntityAdapter, EntityAdapter, EntityState} from '@ngrx/entity';
 import {ActionEx, OffersActionTypes} from './offers.actions';
 import {createSelector} from '@ngrx/store';
