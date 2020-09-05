@@ -83,12 +83,12 @@ public class DatabaseApplicationRunner implements ApplicationRunner {
         createRegion("Brienz", "", "", offerList);
 
         offerList = new ArrayList<>();
-        offerList.add(createOffer("Freie Fahrt mit dem PostAuto im Diemtigtal", "", "", "Transport"));
+        offerList.add(createOffer("Freie Fahrt mit dem PostAuto in der Jungfrau", "", "", "Transport"));
         offerList.add(createOffer("Freie Fahrt mit der Sesselbahn Wiriehorn und Grimmialp während der Sommersaison", "", "", "Transport"));
         offerList.add(createOffer("50 % Tageskarte BLS Schifffahrt", "", "", "Transport"));
         offerList.add(createOffer("20 % Niesenbahn", "", "", "Transport"));
         offerList.add(createOffer("20 % Stockhornbahn", "", "", "Transport"));
-        createRegion("Diemtigtal", "Der Naturpark Diemtigtal bietet dir mit seiner reizvollen, traditionellen Alpwirtschaft eine grosse Erlebnisvielfalt. Mit der NaturparkCard profitierst du von der freien Fahrt mit dem PostAuto im Diemtigtal sowie während der Sommersaison mit den Sesselbahnen Wiriehorn und Grimmialp. Zudem warten weitere attraktive Ermässigungen zu erlebnisreichen Ausflugszielen auf dich. Viel Spass beim Entdecken des Naturpark Diemtigtal!", "", offerList);
+        createRegion("Jungfrau", "Der Naturpark Jungfrau bietet dir mit seiner reizvollen, traditionellen Alpwirtschaft eine grosse Erlebnisvielfalt. Mit der NaturparkCard profitierst du von der freien Fahrt mit dem PostAuto in der Jungfrau Region sowie während der Sommersaison mit den Sesselbahnen Wiriehorn und Grimmialp. Zudem warten weitere attraktive Ermässigungen zu erlebnisreichen Ausflugszielen auf dich. Viel Spass beim Entdecken des Naturpark Diemtigtal!", "", offerList);
     }
 
     private User createRandomUser(){

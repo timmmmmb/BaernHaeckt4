@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Store} from '@ngrx/store';
+import {OffersService} from '../../services/offers.service';
+import {Offer} from '../../models/offer';
+import {OffersAddAll} from '../../store/offers/offers.actions';
 
 @Component({
   selector: 'app-offers',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OffersComponent implements OnInit {
 
-  constructor() { }
+  offers: Offer[] = [];
+
+  constructor(private offersService: OffersService, private store: Store<any>) { }
 
   ngOnInit() {
+    this.offersService.getAllOffers().subscribe((offers: Offer[]) => {
+      this.offers = offers;
+      this.store.dispatch(new OffersAddAll(this.offers));
+    } );
   }
 
 }
