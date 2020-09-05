@@ -8,12 +8,13 @@ import {RegionDetailComponent} from './components/region-detail/region-detail.co
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
 import {QrDisplayComponent} from './components/qr-display/qr-display.component';
+import {ProductsComponent} from './components/products/products.component';
 
 
 const routes: Routes = [
   { path: 'region/:region', component: RegionDetailComponent},
   { path: 'regions', component: RegionsComponent},
-  { path: 'offers', component: OffersComponent},
+  { path: 'offers', component: ProductsComponent},
   { path: 'profile', component: UserComponent},
   { path: '', component: HomeComponent},
   { path: 'register', component: RegisterComponent},
