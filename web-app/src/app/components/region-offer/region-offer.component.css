@@ -1,0 +1,18 @@
+.grid-container {
+  margin-top: 120px;
+  display: grid;
+  grid-template-columns: 50%;
+  grid-gap: 20px 10px;
+  padding: 10px;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 10px;
+}
+
+.card > p {
+  font-size: 15px;
+}

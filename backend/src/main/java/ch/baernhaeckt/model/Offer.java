@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 @Entity
-public class Product {
+public class Offer {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
@@ -17,8 +17,7 @@ public class Product {
     @NotBlank(message = "Name is mandatory")
     private String name;
     private String description;
-    private double prize;
-    private double sale;
+    private String image;
 
     public String getId() {
         return id;
@@ -36,38 +35,31 @@ public class Product {
         return description;
     }
 
-    public double getPrize() {
-        return prize;
-    }
-
-    public void setPrize(double prize) {
-        this.prize = prize;
-    }
-
-    public double getSale() {
-        return sale;
-    }
-
-    public void setSale(double sale) {
-        this.sale = sale;
-    }
-
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return getId().equals(product.getId()) &&
-                Objects.equals(getName(), product.getName()) &&
-                Objects.equals(getDescription(), product.getDescription());
+        Offer offer = (Offer) o;
+        return getId().equals(offer.getId()) &&
+                Objects.equals(getName(), offer.getName()) &&
+                Objects.equals(getDescription(), offer.getDescription()) &&
+                Objects.equals(getImage(), offer.getImage());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getDescription());
+        return Objects.hash(getId(), getName(), getDescription(), getImage());
     }
 }

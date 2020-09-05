@@ -5,11 +5,13 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Product {
+public class Region {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
@@ -17,8 +19,9 @@ public class Product {
     @NotBlank(message = "Name is mandatory")
     private String name;
     private String description;
-    private double prize;
-    private double sale;
+    @OneToMany
+    private List<Offer> offers;
+    private String image;
 
     public String getId() {
         return id;
@@ -36,38 +39,40 @@ public class Product {
         return description;
     }
 
-    public double getPrize() {
-        return prize;
-    }
-
-    public void setPrize(double prize) {
-        this.prize = prize;
-    }
-
-    public double getSale() {
-        return sale;
-    }
-
-    public void setSale(double sale) {
-        this.sale = sale;
-    }
-
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Offer> getOffers() {
+        return offers;
+    }
+
+    public void setOffers(List<Offer> offers) {
+        this.offers = offers;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return getId().equals(product.getId()) &&
-                Objects.equals(getName(), product.getName()) &&
-                Objects.equals(getDescription(), product.getDescription());
+        Region region = (Region) o;
+        return getId().equals(region.getId()) &&
+                Objects.equals(getName(), region.getName()) &&
+                Objects.equals(getDescription(), region.getDescription()) &&
+                Objects.equals(getOffers(), region.getOffers()) &&
+                Objects.equals(getImage(), region.getImage());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getDescription());
+        return Objects.hash(getId(), getName(), getDescription(), getOffers(), getImage());
     }
 }
