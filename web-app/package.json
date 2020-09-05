@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev": "ng serve --open"
+    "dev": "ng serve --open",
+    "buildM": "ng build --base-href . --output-path mobile/www"
   },
   "private": true,
   "dependencies": {
