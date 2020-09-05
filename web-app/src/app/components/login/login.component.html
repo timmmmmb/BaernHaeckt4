@@ -6,6 +6,6 @@
     <input class="un " type="text" align="center" placeholder="E-Mail" #email>
     <input class="pass" type="password" align="center" placeholder="Passwort" #pass>
     <button (click)="signIn(email.value, pass.value)" class="submit" align="center">Sign in</button>
-    <p class="forgot" align="center"><a href="/register">Registrieren</a></p>
+    <p class="forgot" align="center" (click)="navigateTo('/register')">Registrieren</p>
   </section>
 </div>

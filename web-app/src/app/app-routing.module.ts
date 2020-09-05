@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'region/:region', component: RegionDetailComponent},
   { path: 'regions', component: RegionsComponent},
   { path: 'offers', component: OffersComponent},
-  { path: 'user', component: UserComponent},
+  { path: 'profile', component: UserComponent},
   { path: '', component: HomeComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent},

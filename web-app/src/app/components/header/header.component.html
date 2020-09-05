@@ -1,13 +1,13 @@
 <header class="header">
 
   <nav>
-    <a class="nav-element" href="/">
+    <div class="nav-element" (click)="navigateTo('/')">
       <img class="logo" src="assets/images/be-tourismus.png" alt="be-tourismus">
-    </a>
-    <a class="nav-element" href="/regions">Regionen</a>
-    <a class="nav-element" href="/offers">Angebote</a>
-    <a href="/login" class="nav-element" id="userlink">
+    </div>
+    <div class="nav-element" (click)="navigateTo('/regions')">Regionen</div>
+    <div class="nav-element" (click)="navigateTo('/offers')">Angebote</div>
+    <div class="nav-element" (click)="navigateTo('/login')" id="userlink">
       <img class="user-icon" src="/assets/icons/account.svg" alt="">
-    </a>
+    </div>
   </nav>
 </header>
