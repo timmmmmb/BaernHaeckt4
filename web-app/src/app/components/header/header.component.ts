@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {CookieService} from 'ngx-cookie-service';
+import {UpdateUser} from "../../store/user/user.actions";
+import {Store} from "@ngrx/store";
+import {UserService} from "../../services/user.service";
+import {User} from "../../models/user";
 
 @Component({
   selector: 'app-header',
@@ -8,9 +13,14 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private store: Store<any>, private cookieService: CookieService) { }
 
   ngOnInit() {
+    if (this.cookieService.check('UserID')){
+      this.userService.getById(this.cookieService.get('UserID')).subscribe((user: User) => {
+        this.store.dispatch(new UpdateUser(user));
+      });
+    }
   }
 
   // Navigate to a specific URL

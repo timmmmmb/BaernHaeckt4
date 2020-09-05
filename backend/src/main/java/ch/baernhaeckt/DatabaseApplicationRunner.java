@@ -50,6 +50,7 @@ public class DatabaseApplicationRunner implements ApplicationRunner {
         Product product = new Product();
         product.setDescription("Dies ist unser Default Pass");
         product.setName("Basic Gästepass");
+        product.setPrize(35.0);
         product = productRepository.save(product);
 
         purchaseService.createPurchase(parseDate("2020-10-04"), parseDate("2020-10-09"), product, userList.get(generator.nextInt(userList.size())));
@@ -87,7 +88,7 @@ public class DatabaseApplicationRunner implements ApplicationRunner {
         offerList.add(offerService.createOffer("30 % Bahnfahrt Harder Kulm", "", "", "Transport"));
         offerList.add(offerService.createOffer("20 % Niederhornbahn", "", "", "Transport"));
         offerList.add(offerService.createOffer("20 % Niesenbahn", "", "", "Transport"));
-        regionService.createRegion("Habkern und Beatenberg", "Von den idyllischen Ferienorten Habkern und Beatenberg geniesst du einen atemberaubenden Blick auf den Thunersee und das imposante Bergpanorama. Erkunde praktisch und unkompliziert sämtliche Ausflugsziele und Aktivitäten der gesamten Region. Profitiere hierbei von den zahlreichen Vergünstigungen mit den Gästekarten und nutze die freie Fahrt mit dem öffentlichen Verkehr gemäss Linienplan.", "", offerList);
+        regionService.createRegion("Beatenberg", "Von den idyllischen Ferienorten Habkern und Beatenberg geniesst du einen atemberaubenden Blick auf den Thunersee und das imposante Bergpanorama. Erkunde praktisch und unkompliziert sämtliche Ausflugsziele und Aktivitäten der gesamten Region. Profitiere hierbei von den zahlreichen Vergünstigungen mit den Gästekarten und nutze die freie Fahrt mit dem öffentlichen Verkehr gemäss Linienplan.", "", offerList);
 
         offerList = new ArrayList<>();
         offerList.add(offerService.createOffer("Freie Fahrt mit dem öffentlichen Verkehr in der Region", "", "", "Transport"));

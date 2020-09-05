@@ -5,6 +5,7 @@ import {User} from '../../models/user';
 import {UpdateUser} from '../../store/user/user.actions';
 import {Router} from '@angular/router';
 import {selectUser} from '../../store/user/user.reducer';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import {selectUser} from '../../store/user/user.reducer';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private userService: UserService, private store: Store<any>, private router: Router) {
+  constructor(private userService: UserService, private store: Store<any>, private router: Router, private cookieService: CookieService) {
   }
 
   ngOnInit() {
@@ -35,11 +36,11 @@ export class LoginComponent implements OnInit {
       password: pass,
       id: undefined
     };
-    this.userService.login(userObj).subscribe(user => {
+    this.userService.login(userObj).subscribe((user:User) => {
       // Check if there is a user
       if (user) {
         this.store.dispatch(new UpdateUser(user));
-
+        this.cookieService.set('UserID', user.id);
         this.router.navigateByUrl('/');
       }
     });

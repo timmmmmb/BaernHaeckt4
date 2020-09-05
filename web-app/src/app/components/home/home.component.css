@@ -1,5 +1,12 @@
-/* Add a background-image to the first site*/
-* {
+h2 h3{
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container {
   background-image: url("src/assets/images/background.jpeg");
   width: 100vw;
   margin-left: -8px;
@@ -10,8 +17,23 @@
   z-index: -1;
 }
 
+.sticker {
+  background: transparent;
+}
+
+.sticker-container{
+  margin-top: 120px;
+  margin-left: 30vw;
+}
+
 .sticker{
-  width: 50vw;
-  height: 38vw;
-  margin-top: 200px;
-  background-image: none}
+  width: 40vw;
+  height: 30vw;
+}
+
+.offer-container {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  display: block;
+}

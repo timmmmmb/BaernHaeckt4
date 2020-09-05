@@ -21,4 +21,9 @@ export class UserService {
   register(user: User) {
     return this.http.post(this.uri + '/user-management/register', user, this.headers);
   }
+
+  getById(id: string) {
+    return this.http.get(this.uri + `/users/${id}`, this.headers);
+  }
+
 }

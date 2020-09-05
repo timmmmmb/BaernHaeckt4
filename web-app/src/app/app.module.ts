@@ -26,6 +26,7 @@ import { QrDisplayComponent } from './components/qr-display/qr-display.component
 import { RegisterComponent } from './components/register/register.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductComponent } from './components/product/product.component';
+import {CookieService} from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -51,9 +52,9 @@ import { ProductComponent } from './components/product/product.component';
     HttpClientModule,
     NgxQRCodeModule,
     StoreModule.forRoot({ root: appReducer}),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
   ],
-  providers: [UserService, RegionsService, OffersService, ProductsService, PurchasesService],
+  providers: [UserService, RegionsService, OffersService, ProductsService, PurchasesService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
