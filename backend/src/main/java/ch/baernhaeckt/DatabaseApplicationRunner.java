@@ -98,7 +98,7 @@ public class DatabaseApplicationRunner implements ApplicationRunner {
         user.setFirstname(firstnames[generator.nextInt(firstnames.length)]);
         user.setName(names[generator.nextInt(names.length)]);
         user.setEmail(user.getFirstname()+"."+user.getName()+"@"+emailextension[generator.nextInt(emailextension.length)]);
-        user.setPassword("secure");
+        user.setPassword(user.encoder().encode("secure"));
         return user;
     }
 
