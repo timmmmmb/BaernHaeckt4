@@ -1,0 +1,17 @@
+<p>register works!</p>
+<div class="main">
+  <p class="sign" align="center">Registrierung</p>
+  <section class="register">
+    <input class="un " type="text" align="center" placeholder="Vorname" #firstname>
+    <input class="un " type="text" align="center" placeholder="Nachname" #lastname>
+    <input class="un " type="text" align="center" placeholder="Geburtsdatum TT.MM.YYYY" pattern="^\s*(3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.((?:19|20)\d{2})\s*$" #dateofbirth>
+    <input class="un " type="text" align="center" placeholder="E-mail" #email>
+    <input class="pass" type="password" align="center" placeholder="Passwort" #pass>
+    <button (click)="register(email.value, pass.value, firstname.value, lastname.value,dateofbirth.value)" class="submit" align="center">Registrieren</button>
+  </section>
+
+  <div *ngIf="registerSucess">
+    <p class="success">Sie habe sich erfolgreich registriert und werden in wenigen Sekunden weitergeleitet!</p>
+  </div>
+
+</div>

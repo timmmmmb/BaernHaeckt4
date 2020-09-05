@@ -8,3 +8,9 @@
   height: 100vh;
   z-index: -1;
 }
+
+.sticker{
+  width: 50vw;
+  height: 38vw;
+  margin-top: 200px;
+  background-image: none}

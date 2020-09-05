@@ -1,0 +1,114 @@
+.main {
+  background-color: #FFFFFF;
+  width: 400px;
+  height: 550px;
+  margin: 7em auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.sign {
+  padding-top: 40px;
+  color: #b02418;
+  font-weight: bold;
+  font-size: 23px;
+}
+
+.un {
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 27px;
+}
+
+.dob{
+  width: 75%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 9px 20px;
+  border: none;
+  margin-left: 43px;
+  text-align: center;
+}
+
+form.form1 {
+  padding-top: 40px;
+}
+
+.pass {
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 27px;
+}
+
+
+.un:focus, .pass:focus {
+  border: 2px solid rgba(0, 0, 0, 0.18) !important;
+
+}
+
+.submit {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, #b02418, #fb6154);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-left: 30%;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  margin-top: 30px;
+  margin-right: 50px;
+}
+
+.forgot {
+  text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+  color: #e7b7b9;
+  padding-top: 15px;
+}
+
+a {
+  text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+  color: #e7b7b9;
+  text-decoration: none
+}
+
+@media (max-width: 600px) {
+  .main {
+    border-radius: 0px;
+  }}
+
+.success{
+  color: #b02418;
+  margin: 5px;
+}

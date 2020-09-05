@@ -1,1 +1,12 @@
 <p>user works!</p>
+
+<div class="profile" *ngIf="displayProfile">
+  <h2>Ihr Profil</h2>
+
+  <p>Vorname Name</p>
+  <p>Geburtsdatum</p>
+
+  <h2>Ihr Pass</h2>
+</div>
+
+<p *ngIf="notLoggedIn">Bitte loggen Sie sich ein oder erstellen Sie ein kostenloses Login.</p>
