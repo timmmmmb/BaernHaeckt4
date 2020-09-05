@@ -5,9 +5,9 @@ import {HomeComponent} from './components/home/home.component';
 import {OffersComponent} from './components/offers/offers.component';
 import {UserComponent} from './components/user/user.component';
 import {RegionDetailComponent} from './components/region-detail/region-detail.component';
-import {LoginComponent} from "./components/login/login.component";
-import {RegisterComponent} from "./components/register/register.component";
-import {QrDisplayComponent} from "./components/qr-display/qr-display.component";
+import {LoginComponent} from './components/login/login.component';
+import {RegisterComponent} from './components/register/register.component';
+import {QrDisplayComponent} from './components/qr-display/qr-display.component';
 
 
 const routes: Routes = [

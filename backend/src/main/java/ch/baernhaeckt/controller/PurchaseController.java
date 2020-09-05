@@ -55,7 +55,11 @@ public class PurchaseController {
     @GetMapping("/check-qr-code")
     @ResponseBody
     public ResponseEntity<Purchase> checkQRCode(@RequestParam String code) {
-        ArrayList<Purchase> purchases = (ArrayList<Purchase>) purchaseRepository.findByQrCode(code);
-        return ResponseEntity.ok(purchases.get(0));
+        Optional<Purchase> purchase = purchaseRepository.findByQrCode(code);
+        if (purchase.isPresent()) {
+            return ResponseEntity.ok(purchase.get());
+        }
+
+        return null;
     }
 }
