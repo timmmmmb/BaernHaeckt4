@@ -1,0 +1,23 @@
+<section class="product">
+  <p class="title">{{product.name}}</p>
+  <section class="info-section">
+    {{product.description}}
+  </section>
+  <section class="datepicker-section">
+
+    <div>
+      <label for="validFrom">Gültig von:</label>
+      <input id="validFrom" type="date" #from/>
+    </div>
+
+    <div>
+      <label for="validTo">Gültig bis:</label>
+      <input id="validTo" type="date" #to/>
+    </div>
+  </section>
+
+  <section class="purchase-section">
+    <p>{{product.price}}</p>
+    <button class="buy-button" (click)="purchase(from.value, to.value)">Kaufen</button>
+  </section>
+</section>

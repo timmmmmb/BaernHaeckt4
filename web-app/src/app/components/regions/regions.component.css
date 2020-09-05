@@ -6,6 +6,7 @@ a{
   width: 80vw;
   left: 50%;
   transform: translateX(-43%);
+  z-index: -1;
 }
 .regions{
   margin-top: 15%;

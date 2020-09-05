@@ -24,6 +24,8 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { QrDisplayComponent } from './components/qr-display/qr-display.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ProductsComponent } from './components/products/products.component';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { RegisterComponent } from './components/register/register.component';
     LoginComponent,
     RegisterComponent,
     LoginComponent,
-    QrDisplayComponent
+    QrDisplayComponent,
+    ProductsComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,7 @@ import { RegisterComponent } from './components/register/register.component';
     HttpClientModule,
     NgxQRCodeModule,
     StoreModule.forRoot({ root: appReducer}),
-    StoreDevtoolsModule.instrument(),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [UserService, RegionsService, OffersService, ProductsService, PurchasesService],
   bootstrap: [AppComponent]

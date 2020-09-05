@@ -1,12 +1,17 @@
-<p>user works!</p>
-
 <div class="profile" *ngIf="displayProfile">
   <h2>Ihr Profil</h2>
 
-  <p>Vorname Name</p>
-  <p>Geburtsdatum</p>
+  <p>{{firstname}} {{lastname}}</p>
+  <p>{{dateofbrith}}</p>
 
   <h2>Ihr Pass</h2>
+  <ul>
+    <li *ngFor="let pass of passes">
+      {{ pass.valid }}
+      <app-qr-display [value] = "pass.qrcode"></app-qr-display>
+    </li>
+
+  </ul>
 </div>
 
 <p *ngIf="notLoggedIn">Bitte loggen Sie sich ein oder erstellen Sie ein kostenloses Login.</p>

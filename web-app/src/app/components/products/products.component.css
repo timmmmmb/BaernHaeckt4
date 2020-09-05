@@ -1,0 +1,14 @@
+.grid-container {
+  position: absolute;
+  width: 80vw;
+  left: 50%;
+  transform: translateX(-43%);
+  z-index: -1;
+}
+
+.products  {
+  margin-top: 15%;
+  display: grid;
+  grid-template-columns: 80%;
+  grid-row-gap: 15%;
+}
