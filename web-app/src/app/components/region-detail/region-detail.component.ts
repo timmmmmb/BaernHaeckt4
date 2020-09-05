@@ -16,7 +16,7 @@ export class RegionDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private regionsService: RegionsService, private store: Store<any>) { }
 
   ngOnInit() {
-    console.log(this.route.snapshot.params.region);
+    // With this.route.snapshot.params.region you can get the region from the URL
     this.regionsService.getRegionByName(this.route.snapshot.params.region).subscribe((region: Region[]) => {
       this.region = region[0];
     });

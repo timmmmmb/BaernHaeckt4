@@ -12,11 +12,22 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
+/**
+ * This is the service for purchases
+ */
 @Service
 public class PurchaseServiceImpl implements PurchaseService {
     @Autowired
     PurchaseRepository purchaseRepository;
 
+    /**
+     * this function creates a new purchase
+     * @param validFrom the date from when the pass is valid
+     * @param validTo the date until the pass is valid
+     * @param product this is the product purchased
+     * @param user this is the user that purchased the pass
+     * @return a new purchase that has been saved in the database
+     */
     @Override
     public Purchase createPurchase(Date validFrom, Date validTo, Product product, User user) {
         Purchase purchase = new Purchase();

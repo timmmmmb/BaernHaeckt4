@@ -1,3 +1,4 @@
+/* Add a background-image to the first site*/
 * {
   background-image: url("src/assets/images/background.jpeg");
   width: 100vw;

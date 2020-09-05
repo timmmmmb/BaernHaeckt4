@@ -3,8 +3,8 @@
                  [formats]="enabledFormats" [tryHarder]="tryHarder" (permissionResponse)="onHasPermission($event)"
                  (camerasFound)="onCamerasFound($event)" (torchCompatible)="onTorchCompatible($event)"></zxing-scanner>
   <section *ngIf="customer" class="client-info">
-    <p>{{customer.name}} {{customer.firstname}}</p>
-    <p>{{customer.dateOfBirth}}</p>
+    <p class="info">{{customer.name}} {{customer.firstname}}</p>
+    <p class="info">{{customer.dateOfBirth}}</p>
   </section>
   <section class="button-section">
     <button class="scan-button" (click)="onScanStatusChanged(1)">Scan</button>

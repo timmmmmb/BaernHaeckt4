@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
-import {environment} from "../../app.environment";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +13,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Navigate to a specific URL
   navigateTo(url: string) {
     this.router.navigateByUrl(url);
   }
