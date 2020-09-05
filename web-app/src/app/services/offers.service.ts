@@ -15,8 +15,4 @@ export class OffersService {
   getAllOffers() {
     return this.http.get(this.uri + '/offers', this.headers);
   }
-
-  getOffersByRegion(regionId: string) {
-    return this.http.get(this.uri + `/offers/${regionId}`, this.headers);
-  }
 }
