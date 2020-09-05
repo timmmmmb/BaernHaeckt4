@@ -14,6 +14,14 @@ import { RegionDetailComponent } from './components/region-detail/region-detail.
 import { RegionOfferComponent } from './components/region-offer/region-offer.component';
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/login/login.component';
+import {UserService} from "./services/user.service";
+import {RegionsService} from "./services/regions.service";
+import {OffersService} from "./services/offers.service";
+import {ProductsService} from "./services/products.service";
+import {PurchasesService} from "./services/purchases.service";
+import {HttpClientModule} from "@angular/common/http";
+import {StoreModule} from "@ngrx/store";
+import {appReducer} from "./store/app.reducer";
 
 @NgModule({
   declarations: [
@@ -32,9 +40,11 @@ import { LoginComponent } from './components/login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    StoreModule.forRoot({ root: appReducer}),
   ],
-  providers: [],
+  providers: [UserService, RegionsService, OffersService, ProductsService, PurchasesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

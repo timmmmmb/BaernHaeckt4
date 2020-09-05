@@ -2,10 +2,10 @@
 
 <div class="main">
   <p class="sign" align="center">Sign in</p>
-  <form class="form1">
-    <input class="un " type="text" align="center" placeholder="Username">
-    <input class="pass" type="password" align="center" placeholder="Password">
-    <a class="submit" align="center">Sign in</a>
+  <section class="form1">
+    <input class="un " type="text" align="center" placeholder="Username" #email>
+    <input class="pass" type="password" align="center" placeholder="Password" #pass>
+    <button (click)="signIn(email.value, pass.value)" class="submit" align="center">Sign in</button>
     <p class="forgot" align="center"><a href="#">Forgot Password?</a></p>
-  </form>
+  </section>
 </div>
