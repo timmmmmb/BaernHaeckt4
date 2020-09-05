@@ -86,7 +86,7 @@ public class DatabaseApplicationRunner implements ApplicationRunner {
                 );
     }
 
-    public static Date parseDate(String date) {
+    private static Date parseDate(String date) {
         try {
             return new SimpleDateFormat("yyyy-MM-dd").parse(date);
         } catch (ParseException e) {
