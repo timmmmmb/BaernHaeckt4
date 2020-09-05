@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
         user.setName(name);
         user.setDateOfBirth(dateOfBirth);
         user.setEmail(email);
-        user.setPassword(user.encoder().encode("password"));
+        user.setPassword(user.encoder().encode(password));
         user.setCreated(Calendar.getInstance().getTime());
         return userRepository.save(user);
     }
