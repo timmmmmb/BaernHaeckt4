@@ -2,10 +2,7 @@ package ch.baernhaeckt.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Objects;
@@ -18,6 +15,7 @@ public class Region {
     private String id;
     @NotBlank(message = "Name is mandatory")
     private String name;
+    @Column(length = 2000)
     private String description;
     @OneToMany
     private List<Offer> offers;
