@@ -4,6 +4,7 @@ import {Store} from "@ngrx/store";
 import {User} from "../../models/user";
 import {UpdateUser} from "../../store/user/user.actions";
 import {Router} from "@angular/router";
+import {selectUser} from "../../store/user/user.reducer";
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,13 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.store.select(selectUser).subscribe(user => {
+      console.log(user)
+      if (user.id)
+      {
+        this.router.navigateByUrl('/profile')
+      }
+    });
   }
 
   signIn(email: string, pass: string) {
