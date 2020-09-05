@@ -1,6 +1,8 @@
 package ch.baernhaeckt.controller;
 
+import ch.baernhaeckt.model.Product;
 import ch.baernhaeckt.model.User;
+import ch.baernhaeckt.repository.ProductRepository;
 import ch.baernhaeckt.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,29 +13,25 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-
 @RestController
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/products")
+public class ProductController {
+
     @Autowired
-    private UserRepository userRepository;
+    private ProductRepository productRepository;
 
     @GetMapping
     public @ResponseBody
-    User[] list() {
-        ArrayList<User> users = (ArrayList<User>) userRepository.findAll();
-        return users.toArray(new User[0]);
+    Product[] list() {
+        ArrayList<Product> products = (ArrayList<Product>) productRepository.findAll();
+        return products.toArray(new Product[0]);
     }
 
     @GetMapping("/{id}")
     public @ResponseBody
-    User getById(@PathVariable String id) {
-        return userRepository.findById(id).get();
+    Product getById(@PathVariable String id) {
+        return productRepository.findById(id).get();
     }
 
-    @GetMapping("/")
-    @ResponseBody
-    public User getByEmail(@RequestParam String email) {
-        return userRepository.findByEmailIgnoreCase(email).get(0);
-    }
+
 }

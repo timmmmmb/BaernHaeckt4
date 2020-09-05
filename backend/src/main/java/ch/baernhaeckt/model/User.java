@@ -1,6 +1,9 @@
 package ch.baernhaeckt.model;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -90,5 +93,10 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(getId(), getName(), getFirstname(), getEmail(), getPassword(), getDateOfBirth(), getCreated());
+    }
+
+    @Bean
+    public PasswordEncoder encoder() {
+        return new BCryptPasswordEncoder();
     }
 }
