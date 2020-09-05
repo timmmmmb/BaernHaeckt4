@@ -13,6 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RegionDetailComponent } from './components/region-detail/region-detail.component';
 import { RegionOfferComponent } from './components/region-offer/region-offer.component';
 import { UserComponent } from './components/user/user.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { UserComponent } from './components/user/user.component';
     FooterComponent,
     RegionDetailComponent,
     RegionOfferComponent,
-    UserComponent
+    UserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
