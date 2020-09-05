@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegionComponent } from './region.component';
+import { QrDisplayComponent } from './qr-display.component';
 
-describe('RegionComponent', () => {
-  let component: RegionComponent;
-  let fixture: ComponentFixture<RegionComponent>;
+describe('QrDisplayComponent', () => {
+  let component: QrDisplayComponent;
+  let fixture: ComponentFixture<QrDisplayComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RegionComponent ]
+      declarations: [ QrDisplayComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RegionComponent);
+    fixture = TestBed.createComponent(QrDisplayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

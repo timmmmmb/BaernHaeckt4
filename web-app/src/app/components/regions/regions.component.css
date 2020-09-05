@@ -11,7 +11,7 @@ a{
   margin-top: 15%;
   display: grid;
   grid-template-columns: 25% 25% 25%;
-  grid-template-rows: 100px 100px;
+  grid-template-rows: 150px 150px;
   grid-column-gap: 2vw;
   grid-row-gap: 15%;
 }
@@ -21,6 +21,12 @@ a{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.region-container:hover {
+  transform: scale(1.1);
+  transition: all 0.5s ease;
+  cursor: pointer;
 }
 
 .region-name{
@@ -94,6 +100,20 @@ a{
 
 #jungfrau{
   background-image: url("src/assets/images/jungfrau.jpg");
+  width: 100%;
+  height: auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: 100% 100%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#brienz{
+  background-image: url("src/assets/images/brienz.jpeg");
   width: 100%;
   height: auto;
   -webkit-background-size: cover;

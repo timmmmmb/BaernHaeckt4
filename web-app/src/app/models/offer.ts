@@ -3,4 +3,5 @@ export class Offer {
   name: string;
   description: string;
   image: string;
+  category: string;
 }
