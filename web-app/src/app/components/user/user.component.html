@@ -1,5 +1,3 @@
-<p>user works!</p>
-
 <div class="profile" *ngIf="displayProfile">
   <h2>Ihr Profil</h2>
 
@@ -8,9 +6,11 @@
 
   <h2>Ihr Pass</h2>
   <ul>
-    <li *ngFor="let validDate of validDates">
-      {{ validDate }}
+    <li *ngFor="let pass of passes">
+      {{ pass.valid }}
+      <app-qr-display [value] = "pass.qrcode"></app-qr-display>
     </li>
+
   </ul>
 </div>
 

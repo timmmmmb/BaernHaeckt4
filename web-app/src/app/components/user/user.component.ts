@@ -18,8 +18,7 @@ export class UserComponent implements OnInit {
   lastname:string;
   dateofbrith: string;
   validity: string;
-  validDates: string[] = [];
-
+  passes: { valid: string, qrcode: string }[] = [];
   constructor(private purchasesService: PurchasesService, private store: Store<any>) { }
 
   ngOnInit() {
@@ -28,12 +27,12 @@ export class UserComponent implements OnInit {
       {
         this.purchasesService.getValidPurchases().subscribe((purchases: Purchase[]) => {
           const purchasesByUser: Purchase[] = purchases.filter(p => p.user.id === user.id);
-          purchasesByUser.forEach((purchase:Purchase) => this.validDates.push(this.formatDate(purchase.validFrom) + " - " + this.formatDate(purchase.validTo)))
-
           this.firstname = user.firstname;
           this.lastname = user.name;
           this.dateofbrith = user.dateOfBirth;
           this.displayProfile = true;
+          purchasesByUser.forEach((purchase:Purchase) => this.passes.push({"valid": this.formatDate(purchase.validFrom) + " - " + this.formatDate(purchase.validTo), "qrcode": purchase.qrCode}));
+          console.log(this.passes);
         });
       }
       else {
