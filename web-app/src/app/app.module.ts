@@ -22,6 +22,8 @@ import {PurchasesService} from "./services/purchases.service";
 import {HttpClientModule} from "@angular/common/http";
 import {StoreModule} from "@ngrx/store";
 import {appReducer} from "./store/app.reducer";
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { QrDisplayComponent } from './components/qr-display/qr-display.component';
 
 @NgModule({
   declarations: [
@@ -36,12 +38,14 @@ import {appReducer} from "./store/app.reducer";
     RegionDetailComponent,
     RegionOfferComponent,
     UserComponent,
-    LoginComponent
+    LoginComponent,
+    QrDisplayComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxQRCodeModule,
     StoreModule.forRoot({ root: appReducer}),
   ],
   providers: [UserService, RegionsService, OffersService, ProductsService, PurchasesService],
