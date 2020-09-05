@@ -80,7 +80,7 @@ public class DatabaseApplicationRunner implements ApplicationRunner {
         String email =name+firstname+"@"+emailextension[generator.nextInt(emailextension.length)];
         return userService.createUser(firstname,
                 name,
-                "01,01,2000",
+                "01.01.2000",
                 email,
                 "secure"
                 );
