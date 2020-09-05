@@ -7,10 +7,11 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @RepositoryRestResource(collectionResourceRel = "purchase", path = "purchase")
 public interface PurchaseRepository extends CrudRepository<Purchase, String> {
     List<Purchase> findByUser(User user);
     List<Purchase> findByValidFromBeforeAndValidToAfter(Date between, Date between2);
-    List<Purchase> findByQrCode(String qr_code);
+    Optional<Purchase> findByQrCode(String qr_code);
 }

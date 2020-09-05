@@ -1,12 +1,8 @@
 <div style="text-align:center">
-  <h1>
-    @techiediaries/ngx-qrcode demo
-  </h1>
+  <ngx-qrcode
+    [elementType]="elementType"
+    [value]="value"
+    cssClass="aclass"
+    errorCorrectionLevel="L">
+  </ngx-qrcode>
 </div>
-
-<ngx-qrcode
-  [elementType]="elementType"
-  [value]="value"
-  cssClass="aclass"
-  errorCorrectionLevel="L">
-</ngx-qrcode>

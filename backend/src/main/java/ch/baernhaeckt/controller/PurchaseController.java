@@ -4,6 +4,7 @@ import ch.baernhaeckt.model.Purchase;
 import ch.baernhaeckt.model.User;
 import ch.baernhaeckt.repository.PurchaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/purchases")
@@ -52,8 +54,11 @@ public class PurchaseController {
 
     @GetMapping("/getValidQRCodes")
     @ResponseBody
-    public Boolean getValidQRCodes(@RequestParam String code) {
-        ArrayList<Purchase> purchases = (ArrayList<Purchase>) purchaseRepository.findByQrCode(code);
-        return purchases.size() == 1;
+    public ResponseEntity<Purchase> getValidQRCodes(@RequestParam String code) {
+        Optional<Purchase> purchase = purchaseRepository.findByQrCode(code);
+        if(purchase.isPresent() && purchase.get().getValidFrom().before(Calendar.getInstance().getTime()) && purchase.get().getValidTo().after(Calendar.getInstance().getTime())){
+            return purchase.map(ResponseEntity::ok).orElse(null);
+        }
+        return null;
     }
 }
