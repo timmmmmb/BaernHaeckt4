@@ -19,9 +19,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.store.select(selectUser).subscribe(user => {
       console.log(user)
-      if (user.id)
-      {
-        this.router.navigateByUrl('/profile')
+      if (user.id) {
+        this.navigateTo('/profile');
       }
     });
   }
@@ -45,5 +44,9 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/');
       }
     })
+  }
+
+  navigateTo(url: string) {
+    this.router.navigateByUrl(url);
   }
 }

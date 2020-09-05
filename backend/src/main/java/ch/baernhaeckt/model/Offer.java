@@ -19,7 +19,9 @@ public class Offer {
     private String description;
     private String image;
     private String category;
-
+    /**This function returns to category.
+     * 
+     */
     public String getCategory() {
         return category;
     }

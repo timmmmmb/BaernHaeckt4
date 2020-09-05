@@ -38,7 +38,9 @@ public class DatabaseApplicationRunner implements ApplicationRunner {
     RegionService regionService;
     @Autowired
     PurchaseService purchaseService;
-
+    /**
+     * this is the application runner.
+     */
     @Override
     public void run(ApplicationArguments args) throws Exception {
         generator.setSeed(190532336410565L);
