@@ -1,0 +1,10 @@
+* {
+  background-image: url("src/assets/images/background.jpeg");
+  width: 100vw;
+  margin-left: -8px;
+  margin-top: 0;
+  top: 0;
+  position: absolute;
+  height: 100vh;
+  z-index: -1;
+}
