@@ -1,12 +1,10 @@
 package ch.baernhaeckt.controller;
 
 import ch.baernhaeckt.model.Offer;
-import ch.baernhaeckt.model.Product;
 import ch.baernhaeckt.repository.OfferRepository;
-import ch.baernhaeckt.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +13,7 @@ import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/offers")
+@CrossOrigin(origins = "*")
 public class OfferController {
     @Autowired
     private OfferRepository offerRepository;

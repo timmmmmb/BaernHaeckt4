@@ -4,6 +4,7 @@ import ch.baernhaeckt.model.Purchase;
 import ch.baernhaeckt.model.User;
 import ch.baernhaeckt.repository.PurchaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import java.util.Calendar;
 
 @RestController
 @RequestMapping("/purchases")
+@CrossOrigin(origins = "*")
 public class PurchaseController {
 
     @Autowired

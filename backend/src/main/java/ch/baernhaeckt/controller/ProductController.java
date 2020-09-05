@@ -1,20 +1,19 @@
 package ch.baernhaeckt.controller;
 
 import ch.baernhaeckt.model.Product;
-import ch.baernhaeckt.model.User;
 import ch.baernhaeckt.repository.ProductRepository;
-import ch.baernhaeckt.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 @RestController
 @RequestMapping("/products")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class ProductController {
 
     @Autowired

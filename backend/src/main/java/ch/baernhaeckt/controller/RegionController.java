@@ -3,6 +3,7 @@ package ch.baernhaeckt.controller;
 import ch.baernhaeckt.model.Region;
 import ch.baernhaeckt.repository.RegionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/regions")
+@CrossOrigin(origins = "*")
 public class RegionController {
 
     @Autowired
