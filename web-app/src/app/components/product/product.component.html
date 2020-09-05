@@ -7,23 +7,22 @@
 
     <div>
       <label for="validFrom">Gültig von:</label>
-      <input id="validFrom" type="date" #from/>
+      <input (change)="calculatePrice(from.value, to.value)" id="validFrom" type="date" #from/>
     </div>
 
     <div>
       <label for="validTo">Gültig bis:</label>
-      <input id="validTo" type="date" #to/>
+      <input (change)="calculatePrice(from.value, to.value)" id="validTo" type="date" #to/>
     </div>
 
     <p *ngIf="invalidDate" style="color: red;">Ungültige Auswahl der Daten</p>
   </section>
 
   <section class="price-section">
-      <p class="price">{{product.price}} CHF</p>
+      <p class="price">{{calculatedPrice}} CHF</p>
   </section>
 
   <section class="purchase-section">
-    <p>{{product.price}}</p>
     <button *ngIf="user.id" class="buy-button" (click)="purchase(from.value, to.value)">
       Kaufen
     </button>
