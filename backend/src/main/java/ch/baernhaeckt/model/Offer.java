@@ -18,6 +18,15 @@ public class Offer {
     private String name;
     private String description;
     private String image;
+    private String category;
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
     public String getId() {
         return id;
