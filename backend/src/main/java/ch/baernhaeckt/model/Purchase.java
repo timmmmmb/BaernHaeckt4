@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.Objects;
 
@@ -15,8 +16,10 @@ public class Purchase {
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String id;
+    @NotBlank(message = "User is mandatory")
     @OneToOne
     private User user;
+    @NotBlank(message = "Product is mandatory")
     @OneToOne
     private Product product;
     private Date purchasedOn;

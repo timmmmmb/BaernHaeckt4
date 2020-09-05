@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 @Entity
@@ -13,8 +14,11 @@ public class Product {
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String id;
+    @NotBlank(message = "Name is mandatory")
     private String name;
     private String description;
+    private double prize;
+    private double sale;
 
     public String getId() {
         return id;
@@ -30,6 +34,22 @@ public class Product {
 
     public String getDescription() {
         return description;
+    }
+
+    public double getPrize() {
+        return prize;
+    }
+
+    public void setPrize(double prize) {
+        this.prize = prize;
+    }
+
+    public double getSale() {
+        return sale;
+    }
+
+    public void setSale(double sale) {
+        this.sale = sale;
     }
 
     public void setDescription(String description) {
