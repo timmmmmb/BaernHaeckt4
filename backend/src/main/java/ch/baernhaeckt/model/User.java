@@ -5,9 +5,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.Objects;
 
@@ -19,6 +21,8 @@ public class User {
     private String id;
     private String name;
     private String firstname;
+    @NotBlank(message = "Email is mandatory")
+    @Column(unique=true)
     private String email;
     private String password;
     private String dateOfBirth;
