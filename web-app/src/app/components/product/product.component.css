@@ -1,0 +1,39 @@
+.product {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.buy-button {
+  position: absolute;
+  bottom: 10%;
+  right: 25%;
+  background: limegreen;
+  color: whitesmoke;
+  border: 2px solid whitesmoke;
+  border-radius: 10px;
+  width: 20%;
+  height: 20%;
+  font-weight: bold;
+  font-size: 15px;
+  transition: auto;
+}
+
+.buy-button:hover {
+  border-color: limegreen;
+  color: limegreen;
+  background-color: whitesmoke;
+}
+
+.datepicker-section {
+  margin-top: 30px;
+}
+
+#validFrom {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+#validTo {
+  margin-left: 17px;
+}
