@@ -2,9 +2,12 @@ package ch.baernhaeckt;
 
 import ch.baernhaeckt.model.Product;
 import ch.baernhaeckt.model.Purchase;
+import ch.baernhaeckt.model.Region;
 import ch.baernhaeckt.model.User;
+import ch.baernhaeckt.repository.OfferRepository;
 import ch.baernhaeckt.repository.ProductRepository;
 import ch.baernhaeckt.repository.PurchaseRepository;
+import ch.baernhaeckt.repository.RegionRepository;
 import ch.baernhaeckt.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -33,6 +36,10 @@ public class DatabaseApplicationRunner implements ApplicationRunner {
     UserRepository userRepository;
     @Autowired
     PurchaseRepository purchaseRepository;
+    @Autowired
+    OfferRepository offerRepository;
+    @Autowired
+    RegionRepository regionRepository;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -60,6 +67,12 @@ public class DatabaseApplicationRunner implements ApplicationRunner {
         purchase.setValidFrom(parseDate("2020-09-04"));
         purchase.setValidTo(parseDate("2020-09-09"));
         purchaseRepository.save(purchase);
+        
+
+        Region region = new Region();
+        region.setName("");
+        region.setDescription("");
+        region.setImage("");
     }
 
     private User createRandomUser(){
