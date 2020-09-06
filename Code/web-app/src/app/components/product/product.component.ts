@@ -5,8 +5,7 @@ import {Purchase} from '../../models/purchase';
 import {Store} from '@ngrx/store';
 import {selectUser} from '../../store/user/user.reducer';
 import {User} from '../../models/user';
-import {Router} from "@angular/router";
-import {log} from "util";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -25,7 +24,6 @@ export class ProductComponent implements OnInit {
   constructor(private purchaseService: PurchasesService, private router: Router, private store: Store<any>) { }
 
   ngOnInit() {
-    console.log(this.product);
     this.store.select(selectUser).subscribe(user => this.user = user);
     this.calculatedPrice = this.product.price;
   }
@@ -72,11 +70,7 @@ export class ProductComponent implements OnInit {
       return false;
     }
 
-    if (validFrom > validTo) {
-      return false;
-    }
-
-    return true;
+    return validFrom <= validTo;
   }
 
   calculatePrice(from: string, to: string) {
@@ -87,8 +81,8 @@ export class ProductComponent implements OnInit {
     const validFrom = new Date(from);
     const validTo = new Date(to);
 
+    // Calculate the days between the two dates
     const diffInTime = validTo.getTime() - validFrom.getTime();
-
     const diffInDays = diffInTime / (1000 * 3600 * 24);
 
     this.calculatedPrice = this.product.price * diffInDays;

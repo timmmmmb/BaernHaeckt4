@@ -17,9 +17,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     if (this.cookieService.check('UserID')) {
-      console.log(this.cookieService.get('UserID'));
       this.userService.getById(this.cookieService.get('UserID')).subscribe((user: User) => {
-        console.log(user);
         this.store.dispatch(new UpdateUser(user));
       });
     }

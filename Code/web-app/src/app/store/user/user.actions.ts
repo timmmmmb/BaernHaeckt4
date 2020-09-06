@@ -1,5 +1,4 @@
 import { Action } from '@ngrx/store';
-import {appReducer} from "../app.reducer";
 
 export enum UserActionTypes {
   UpdateUser = '[User Component] UpdateUser',

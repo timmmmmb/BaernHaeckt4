@@ -8,5 +8,5 @@ import {Component, Input} from '@angular/core';
 export class QrDisplayComponent {
   title = 'qr-display';
   elementType = 'url';
-  @Input() value:string;
+  @Input() value: string;
 }

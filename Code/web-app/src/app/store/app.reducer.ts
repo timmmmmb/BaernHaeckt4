@@ -1,6 +1,4 @@
-import {User} from "../models/user";
-import {Region} from "../models/region";
-import {Offer} from "../models/offer";
+import {User} from '../models/user';
 import * as fromUser from './user/user.reducer';
 import * as fromRegions from './regions/regions.reducer';
 import * as fromOffers from './offers/offers.reducer';
