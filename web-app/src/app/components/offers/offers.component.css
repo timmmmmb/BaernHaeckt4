@@ -1,3 +1,8 @@
 .offers {
-  margin-top: 120px;
+  margin-top: 15%;
+  display: grid;
+  grid-template-columns: 45% 45%;
+  grid-template-rows: 150px 150px;
+  grid-column-gap: 2vw;
+  grid-row-gap: 15%;
 }
