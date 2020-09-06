@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {RegionsComponent} from './components/regions/regions.component';
 import {HomeComponent} from './components/home/home.component';
-import {OffersComponent} from './components/offers/offers.component';
 import {UserComponent} from './components/user/user.component';
 import {RegionDetailComponent} from './components/region-detail/region-detail.component';
 import {LoginComponent} from './components/login/login.component';

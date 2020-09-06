@@ -1,4 +1,3 @@
-
 import {map} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
@@ -11,14 +10,12 @@ import {OffersAddAll} from './offers/offers.actions';
 import {RegionsAddAll} from './regions/regions.actions';
 import {Region} from '../models/region';
 import {Offer} from '../models/offer';
-import {UpdateUser} from './user/user.actions';
 
 @Injectable()
 export class AppEffects {
 
   constructor(private actions$: Actions, private store: Store<any>,
-              private regionsService: RegionsService, private offersService: OffersService,
-              private userService: UserService) {}
+              private regionsService: RegionsService, private offersService: OffersService) {}
 
   @Effect()
   getData = this.actions$.pipe(

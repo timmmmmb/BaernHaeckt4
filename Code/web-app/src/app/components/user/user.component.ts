@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from '@ngrx/store';
 import {selectUser} from '../../store/user/user.reducer';
-import {Purchase} from "../../models/purchase";
-import {PurchasesService} from "../../services/purchases.service";
+import {Purchase} from '../../models/purchase';
+import {PurchasesService} from '../../services/purchases.service';
 
 
 @Component({
@@ -10,6 +10,7 @@ import {PurchasesService} from "../../services/purchases.service";
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
+
 export class UserComponent implements OnInit {
 
   displayProfile = false;
@@ -19,6 +20,7 @@ export class UserComponent implements OnInit {
   dateofbrith: string;
   validity: string;
   passes: { valid: string, qrcode: string }[] = [];
+
   constructor(private purchasesService: PurchasesService, private store: Store<any>) { }
 
   ngOnInit() {
@@ -31,7 +33,8 @@ export class UserComponent implements OnInit {
           this.lastname = user.name;
           this.dateofbrith = user.dateOfBirth;
           this.displayProfile = true;
-          purchasesByUser.forEach((purchase:Purchase) => this.passes.push({"valid": this.formatDate(purchase.validFrom) + " - " + this.formatDate(purchase.validTo), "qrcode": purchase.qrCode}));
+          // tslint:disable-next-line:max-line-length
+          purchasesByUser.forEach((purchase: Purchase) => this.passes.push({valid: this.formatDate(purchase.validFrom) + ' - ' + this.formatDate(purchase.validTo), qrcode: purchase.qrCode}));
         });
         this.notLoggedIn = false;
       }
@@ -39,15 +42,17 @@ export class UserComponent implements OnInit {
   }
 
   formatDate(date: Date): string {
+    // To solve issues with different date types
     date = new Date(date.toString());
+
     let dd: string = date.getDate().toString();
     let mm: string = date.getMonth().toString();
-    let yyyy: string = date.getFullYear().toString();
+    const yyyy: string = date.getFullYear().toString();
 
-    if(dd.length < 2) {
+    if (dd.length < 2) {
       dd = '0' + dd;
     }
-    if(mm.length < 2) {
+    if (mm.length < 2) {
       mm = '0' + mm;
     }
     return `${dd}.${mm}.${yyyy}`;

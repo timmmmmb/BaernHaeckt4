@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       password: pass,
       id: undefined
     };
-    this.userService.login(userObj).subscribe((user:User) => {
+    this.userService.login(userObj).subscribe((user: User) => {
       // Check if there is a user
       if (user) {
         this.store.dispatch(new UpdateUser(user));

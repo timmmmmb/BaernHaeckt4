@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {RegionsService} from '../../services/regions.service';
 import {Store} from '@ngrx/store';
 import {Region} from '../../models/region';
-import {RegionsAddAll} from '../../store/regions/regions.actions';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -13,7 +12,7 @@ import {ActivatedRoute} from '@angular/router';
 export class RegionDetailComponent implements OnInit {
   region: Region;
 
-  constructor(private route: ActivatedRoute, private regionsService: RegionsService, private store: Store<any>) { }
+  constructor(private route: ActivatedRoute, private regionsService: RegionsService) { }
 
   ngOnInit() {
     // With this.route.snapshot.params.region you can get the region from the URL

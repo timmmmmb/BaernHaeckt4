@@ -1,7 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {OffersAddAll} from '../../store/offers/offers.actions';
-import {RegionsService} from '../../services/regions.service';
 import {Region} from '../../models/region';
 
 @Component({

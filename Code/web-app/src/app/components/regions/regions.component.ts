@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Region} from "../../models/region";
-import {RegionsService} from "../../services/regions.service";
-import {Store} from "@ngrx/store";
-import {RegionsAddAll} from "../../store/regions/regions.actions";
-import {Router} from "@angular/router";
+import {Region} from '../../models/region';
+import {RegionsService} from '../../services/regions.service';
+import {Store} from '@ngrx/store';
+import {RegionsAddAll} from '../../store/regions/regions.actions';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-regions',

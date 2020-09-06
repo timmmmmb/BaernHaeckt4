@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
       id: undefined
     };
 
-    this.userService.register(userObj).subscribe((user:User) => {
+    this.userService.register(userObj).subscribe((user: User) => {
       if (user) {
         this.store.dispatch(new UpdateUser(user));
         this.registerSucess = true;
