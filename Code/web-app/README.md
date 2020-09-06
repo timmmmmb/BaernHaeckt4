@@ -10,18 +10,18 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Commands
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+If you want to create a command, do it inside of the package.json. There are some pre-defined commands. We created one to develop:
+-> `npm run dev` --> Hot Reload, Open the App automaticly inside the browser.
 
-## Running unit tests
+## Mobile
+There is a mobile folder with the cordova app inside. At the moment the app isn't working on any device.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Src
+In the Src folder is the angular project and all the needed files.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Troubleshooting
+In case you cannot start the web-app try:
+- Remove the node_modules `rm -rf node_modules`
+- Reinstall the node_modules `npm i` or `npm install`
