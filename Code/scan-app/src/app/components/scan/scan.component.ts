@@ -1,16 +1,25 @@
 import {Component, OnInit} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {BarcodeFormat} from '@zxing/library';
-import {PurchasesService} from "../../services/purchases.service";
-import {UserService} from "../../services/user.service";
-import {Purchase} from "../../models/purchase";
-import {User} from "../../models/user";
+import {PurchasesService} from '../../services/purchases.service';
+import {UserService} from '../../services/user.service';
+import {Purchase} from '../../models/purchase';
+import {User} from '../../models/user';
+
+enum ScanStatus {
+  IDLE = 0,
+  SCANNING,
+  SUCCESS,
+  FAILURE
+}
 
 @Component({
   selector: 'app-scan',
   templateUrl: './scan.component.html',
   styleUrls: ['./scan.component.css']
 })
+
+
 export class ScanComponent implements OnInit {
 
   availableDevices: MediaDeviceInfo[];
@@ -27,7 +36,7 @@ export class ScanComponent implements OnInit {
 
   enabledFormats: BarcodeFormat[] = [BarcodeFormat.QR_CODE];
 
-  scanStatus = 0;
+  scanStatus = ScanStatus.IDLE;
   scanStatusColor: string;
   scanEnabled = false;
 
@@ -36,6 +45,9 @@ export class ScanComponent implements OnInit {
 
   customer: User = null;
   purchase: Purchase = null;
+
+  invalidCode = false;
+  noCodeFound = false;
 
   constructor(private purchsesService: PurchasesService, private userService: UserService) { }
 
@@ -55,12 +67,14 @@ export class ScanComponent implements OnInit {
   onCodeResult(resultString: string) {
     if (this.scanEnabled) {
       this.qrResultString = resultString;
-      this.onScanStatusChanged(2);
+      this.onScanStatusChanged(ScanStatus.SUCCESS);
 
       this.purchsesService.getPurchaseByQRCode(this.qrResultString).subscribe((purchase: Purchase) => {
         if (purchase) {
           this.purchase = purchase;
           this.customer = purchase.user;
+        } else {
+          this.invalidCode = true;
         }
       });
     }
@@ -91,25 +105,26 @@ export class ScanComponent implements OnInit {
     this.scanStatus = scanStatus;
 
     switch (this.scanStatus) {
-      case 0:
+      case ScanStatus.IDLE:
         this.scanStatusColor = 'black';
         this.doneDisabled = true;
         break;
-      case 1:
+      case ScanStatus.SCANNING:
         this.scanStatusColor = 'yellow';
         this.scanEnabled = true;
         setTimeout(() => {
           if (this.scanStatus === 1) {
             this.onScanStatusChanged(3);
+            this.noCodeFound = true;
           }
         }, 4000);
         break;
-      case 2:
+      case ScanStatus.SUCCESS:
         this.scanStatusColor = 'green';
         this.scanEnabled = false;
         this.doneDisabled = false;
         break;
-      case 3:
+      case ScanStatus.FAILURE:
         this.scanStatusColor = 'red';
         this.scanEnabled = false;
         this.doneDisabled = false;
@@ -121,10 +136,12 @@ export class ScanComponent implements OnInit {
   }
 
   refresh() {
-    this.onScanStatusChanged(0);
+    this.onScanStatusChanged(ScanStatus.IDLE);
     this.clearResult();
     this.customer = null;
     this.purchase = null;
+    this.invalidCode = false;
+    this.noCodeFound = false;
   }
 
   private formatDate(date: Date): string {

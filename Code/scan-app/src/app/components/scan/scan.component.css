@@ -59,3 +59,10 @@
 .black {
   border: 5px solid black;
 }
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+}

@@ -7,6 +7,10 @@
     <p class="info">Geburtsdatum: <span class="bold">{{customer.dateOfBirth}}</span></p>
     <p class="info">Von-Bis: <span class="bold">{{formatDate(purchase.validFrom)}} - {{formatDate(purchase.validTo)}}</span></p>
   </section>
+  <section *ngIf="noCodeFound || invalidCode" class="error-section">
+    <p *ngIf="invalidCode" class="error-message">Ungültiger QR Code</p>
+    <p *ngIf="noCodeFound" class="error-message">Kein QR Code gefunden</p>
+  </section>
   <section class="button-section">
     <button class="scan-button" (click)="onScanStatusChanged(1)">Scan</button>
     <button [disabled]="doneDisabled" class="done-button" (click)="refresh()">Done</button>
