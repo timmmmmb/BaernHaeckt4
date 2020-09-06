@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+
 @RestController
 @RequestMapping("/products")
 @CrossOrigin(origins = "*")
@@ -31,6 +32,4 @@ public class ProductController {
     Product getById(@PathVariable String id) {
         return productRepository.findById(id).get();
     }
-
-
 }

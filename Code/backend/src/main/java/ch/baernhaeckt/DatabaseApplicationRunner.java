@@ -133,5 +133,4 @@ public class DatabaseApplicationRunner implements ApplicationRunner {
             return null;
         }
     }
-
 }

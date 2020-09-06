@@ -30,7 +30,6 @@ public class UserManagementController {
     public ResponseEntity<User> loginUser(@Valid @RequestBody User user) {
         Optional<User> res = userRepository.findByEmailIgnoreCase(user.getEmail());
 
-
         if (res.isEmpty()) {
             logger.warn("User not found");
             return null;
@@ -59,11 +58,9 @@ public class UserManagementController {
         if (emailExists(user.getEmail())) {
             throw new EmailExistsException("Account with this email address already exists: " + user.getEmail());
         }
-
         user.setPassword(user.encoder().encode(user.getPassword()));
 
         return ResponseEntity.ok(userRepository.save(user));
-
     }
 
     private boolean emailExists(String email) {

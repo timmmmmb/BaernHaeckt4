@@ -24,5 +24,4 @@ public class OfferController {
         ArrayList<Offer> offers = (ArrayList<Offer>) offerRepository.findAll();
         return offers.toArray(new Offer[0]);
     }
-
 }
