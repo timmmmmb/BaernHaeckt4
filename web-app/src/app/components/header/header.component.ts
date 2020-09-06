@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
-import {UpdateUser} from "../../store/user/user.actions";
-import {Store} from "@ngrx/store";
-import {UserService} from "../../services/user.service";
-import {User} from "../../models/user";
+import {UpdateUser} from '../../store/user/user.actions';
+import {Store} from '@ngrx/store';
+import {UserService} from '../../services/user.service';
+import {User} from '../../models/user';
 
 @Component({
   selector: 'app-header',
@@ -16,8 +16,10 @@ export class HeaderComponent implements OnInit {
   constructor(private userService: UserService, private router: Router, private store: Store<any>, private cookieService: CookieService) { }
 
   ngOnInit() {
-    if (this.cookieService.check('UserID')){
+    if (this.cookieService.check('UserID')) {
+      console.log(this.cookieService.get('UserID'));
       this.userService.getById(this.cookieService.get('UserID')).subscribe((user: User) => {
+        console.log(user);
         this.store.dispatch(new UpdateUser(user));
       });
     }
@@ -28,10 +30,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl(url);
   }
 
-  logout(){
-    this.cookieService.delete("UserID");
-    let empty = new User();
+  logout() {
+    this.cookieService.delete('UserID');
+    const empty = new User();
     this.store.dispatch(new UpdateUser(empty));
-    this.router.navigate(["/"]);
+    this.router.navigate(['/']);
   }
 }

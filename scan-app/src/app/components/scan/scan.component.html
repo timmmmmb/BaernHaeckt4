@@ -1,10 +1,11 @@
 <section class="scan-section">
-  <zxing-scanner [className]="scanStatusColor" [torch]="torchEnabled" [(device)]="currentDevice" (scanSuccess)="onCodeResult($event)"
+  <zxing-scanner [className]="'scanner ' + scanStatusColor" [torch]="torchEnabled" [(device)]="currentDevice" (scanSuccess)="onCodeResult($event)"
                  [formats]="enabledFormats" [tryHarder]="tryHarder" (permissionResponse)="onHasPermission($event)"
                  (camerasFound)="onCamerasFound($event)" (torchCompatible)="onTorchCompatible($event)"></zxing-scanner>
-  <section *ngIf="customer" class="client-info">
-    <p class="info">{{customer.name}} {{customer.firstname}}</p>
-    <p class="info">{{customer.dateOfBirth}}</p>
+  <section *ngIf="customer && purchase" class="client-info">
+    <p class="info">Name: <span class="bold">{{customer.name}} {{customer.firstname}}</span></p>
+    <p class="info">Geburtsdatum: <span class="bold">{{customer.dateOfBirth}}</span></p>
+    <p class="info">Von-Bis: <span class="bold">{{formatDate(purchase.validFrom)}} - {{formatDate(purchase.validTo)}}</span></p>
   </section>
   <section class="button-section">
     <button class="scan-button" (click)="onScanStatusChanged(1)">Scan</button>

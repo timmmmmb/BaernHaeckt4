@@ -12,10 +12,10 @@ import {PurchasesService} from "../../services/purchases.service";
 })
 export class UserComponent implements OnInit {
 
-  displayProfile:boolean = false;
-  notLoggedIn: boolean = false;
+  displayProfile = false;
+  notLoggedIn = false;
   firstname: string;
-  lastname:string;
+  lastname: string;
   dateofbrith: string;
   validity: string;
   passes: { valid: string, qrcode: string }[] = [];
@@ -24,8 +24,7 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     this.store.select(selectUser).subscribe(user => {
       this.notLoggedIn = true;
-      if (user.id)
-      {
+      if (user.id) {
         this.purchasesService.getValidPurchases().subscribe((purchases: Purchase[]) => {
           const purchasesByUser: Purchase[] = purchases.filter(p => p.user.id === user.id);
           this.firstname = user.firstname;

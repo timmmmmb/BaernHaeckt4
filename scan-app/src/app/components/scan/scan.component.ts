@@ -35,6 +35,7 @@ export class ScanComponent implements OnInit {
   test: string;
 
   customer: User = null;
+  purchase: Purchase = null;
 
   constructor(private purchsesService: PurchasesService, private userService: UserService) { }
 
@@ -58,6 +59,7 @@ export class ScanComponent implements OnInit {
 
       this.purchsesService.getPurchaseByQRCode(this.qrResultString).subscribe((purchase: Purchase) => {
         if (purchase) {
+          this.purchase = purchase;
           this.customer = purchase.user;
         }
       });
@@ -121,6 +123,25 @@ export class ScanComponent implements OnInit {
   refresh() {
     this.onScanStatusChanged(0);
     this.clearResult();
+    this.customer = null;
+    this.purchase = null;
+  }
+
+  private formatDate(date: Date): string {
+    // To solve issues with different date types
+    date = new Date(date.toString());
+    let dd: string = date.getDate().toString();
+    let mm: string = date.getMonth().toString();
+    const yyyy: string = date.getFullYear().toString();
+
+    if (dd.length < 2) {
+      dd = '0' + dd;
+    }
+    if (mm.length < 2) {
+      mm = '0' + mm;
+    }
+
+    return `${dd}.${mm}.${yyyy}`;
   }
 }
 
